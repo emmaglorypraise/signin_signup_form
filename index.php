@@ -1,3 +1,4 @@
+<?php include('server.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,20 +36,21 @@
             <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
               <div class="row">
                 <div class="col-md-6">
-                  <img src="/assets/image/undraw_sign_in_e6hj.svg" alt="sign in image" class="img-fluid">
+                  <img src="./assets/image/undraw_sign_in_e6hj.svg" alt="sign in image" class="img-fluid">
                 </div>
                 <div class="col-md-6">
-                  <form class="mt-5" action="welcome.php"  method="post">
+                  <form class="mt-5" method="post" action="index.php"  >
+                  <?php include('errors.php'); ?>
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" required>
+                      <label for="exampleInputEmail1">Name</label>
+                      <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" required>
                      
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" required>
+                      <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Sign In</button>
+                    <button type="submit" class="btn btn-primary" name="login_user">Sign In</button>
                     <a href="/welcome.html" target="_blank" rel="noopener noreferrer"></a>
                   </form>
                 </div>
@@ -58,33 +60,34 @@
             <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup">
               <div class="row">
                 <div class="col-md-6">
-                  <form class="mt-5" action="welcome.html">
+                  <form class="mt-5" action="index.php" method="post">
+                  <?php include('errors.php'); ?>
                     <div class="form-group">
                       <label for="exampleInputname">Name</label>
-                      <input type="text" class="form-control" id="examplename" aria-describedby="name" placeholder="Enter Name" required>
+                      <input type="text" name="name" class="form-control" value="<?php echo $name; ?>" aria-describedby="name" placeholder="Enter Name" required>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail1">Email Address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" required>
+                      <input type="email" name="email" class="form-control" value="<?php echo $email; ?>" aria-describedby="emailHelp" placeholder="Enter Email" required>
                       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" required> 
+                      <input type="password" name="password_1" class="form-control" placeholder="Enter Password" required> 
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Confirm Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password" required>
+                      <input type="password" name="password_2" class="form-control" placeholder="Confirm Password" required>
                     </div>
                     <div class="form-group form-check">
                       <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                       <label class="form-check-label" for="exampleCheck1" >I agree to all Terms & Conditions</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                    <button type="submit" class="btn btn-primary" name="reg_user">Sign Up</button>
                   </form>
                 </div>
                 <div class="col-md-6">
-                  <img src="/assets/image/undraw_mobile_login_ikmv.svg" alt="sign up image" class="img-fluid">
+                  <img src="./assets/image/undraw_mobile_login_ikmv.svg" alt="sign up image" class="img-fluid">
                 </div>
               </div>
             </div>

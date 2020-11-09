@@ -10,10 +10,10 @@
 .body-wrapper{
   background-color: #ffffff;
   padding: 20px;
-  margin: 40px auto 30px;
+  margin: 10px auto 30px;
 }
 .text-wrapper{
-  margin-top: 50px;
+  margin-top: 30px;
 }
 .text-wrapper h1{
   font-size: 50px;
@@ -41,7 +41,7 @@
 }
 .form-group input{
   border: none;
-  border-bottom: 2px solid #3f3d56;
+  border: 1px solid #3f3d56;
   border-radius: 0px;
 }
 button{
@@ -57,6 +57,25 @@ img{
   font-weight: 600;
   font-size: 20px;
 }
+
+.error {
+  width: 92%; 
+  margin: 0px auto; 
+  padding: 10px; 
+  border: 1px solid #a94442; 
+  color: #a94442; 
+  background: #f2dede; 
+  border-radius: 5px; 
+  text-align: left;
+}
+
+.success {
+  color: #3c763d; 
+  background: #dff0d8; 
+  border: 1px solid #3c763d;
+  margin-bottom: 20px;
+}
+
 @media (min-width: 768px){
   img{
     margin-top: 40px;

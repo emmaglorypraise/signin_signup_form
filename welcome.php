@@ -1,3 +1,17 @@
+<?php 
+  session_start(); 
+
+  if (!isset($_SESSION['username'])) {
+  	$_SESSION['msg'] = "You must log in first";
+  	header('location: login.php');
+  }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: login.php");
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,22 +28,38 @@
 </head>
 
 <body>
- 
+
+
+</div>
   <div class="container">
+  <div class="content">
+  	<!-- notification message -->
+  	<?php if (isset($_SESSION['success'])) : ?>
+      <div class="error success" >
+      	<h3 class="text-center text-success mt-3">
+          <?php 
+          	echo $_SESSION['success']; 
+          	unset($_SESSION['success']);
+          ?>
+      	</h3>
+      </div>
+  	<?php endif ?>
     <div class="row">
       <div class="col-md-12 justify-content-center align-items-center">
         <div class="text-center">
           <div class="text-wrapper">
-            <!-- Hello ------- -->
-            <h2> Hello <?php echo $_POST["email"]; ?><br></h2>
-            <h2>Your email address is: <?php echo $_POST["email"]; ?></h2>
+            <!-- logged in user information -->
+            <?php  if (isset($_SESSION['name'])) : ?>
+            <h2>Hello <strong><?php echo $_SESSION['name']; ?></strong></h2>
+            <?php endif ?>
+            
          <h1>Welcome to Talent Pool</h1>
           </div>
           <div>
             <img src="./assets/image/undraw_welcome_3gvl.svg" alt="welcome image" class="img-fluid">
           </div>
           <div class="back-link">
-            <p><a href="index.html">Go back</a></p>
+            <p><a href="index.php?logout='1'" style="color: red;">Log out</a></p>
           </div>
         </div>
       </div>
